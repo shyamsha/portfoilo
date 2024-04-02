@@ -1,10 +1,14 @@
 "use client";
 import lottie from "lottie-web";
+import Link from "next/link";
 import React, { useRef, useEffect } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+// import file from "../../../public/assets/file.pdf";
 
 function Body() {
   const animationData = require("../../../public/assets/projects.json");
+  const fileUrl = "";
+  const fileName = "Syam_Kumar_Resume.pdf";
   const [text, count] = useTypewriter({
     words: [
       "Hi, My name is Syam",
@@ -15,6 +19,24 @@ function Body() {
     delaySpeed: 2000,
   });
   const container = useRef(null);
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch("/api/download");
+      const blob = await response.blob();
+
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "Syam_Kumar.pdf");
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+    } catch (error) {
+      console.error("Error downloading file:", error);
+    }
+  };
+
   useEffect(() => {
     const instance = lottie.loadAnimation({
       container: container.current,
@@ -41,12 +63,18 @@ function Body() {
               community
             </p>
             <div>
-              <button className="bg-blue-400 text-white px-4 py-1 rounded mr-4 hover:bg-blue-600">
+              <button
+                onClick={handleDownload}
+                className="bg-blue-400 text-white px-4 py-1 rounded mr-4 hover:bg-blue-600"
+              >
                 Resume
               </button>
-              <button className="bg-gray-300 text-gray-700 px-4 py-1 rounded hover:bg-gray-400">
+              <Link
+                href="#contact"
+                className="bg-gray-300 text-gray-700 px-4 py-1 rounded hover:bg-gray-400"
+              >
                 Contact Me
-              </button>
+              </Link>
             </div>
             <p className="text-blue-500 text-small font-normal mt-5">
               Codding | Learning | Lifestyle

@@ -17,6 +17,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.2",
     "react-simple-typewriter": "^5.0.1",
+    "react-use-downloader": "^1.2.5",
     "sanity": "^3.36.2"
   },
   "devDependencies": {
