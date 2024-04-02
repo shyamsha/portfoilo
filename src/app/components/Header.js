@@ -5,8 +5,8 @@ import React from "react";
 function Header() {
   return (
     <>
-      <header className="py-4">
-        <div className="mx-10 sm:mx-auto max-w-6xl px-4 flex justify-between items-center border border-zinc-600 p-3 rounded-full">
+      <header className="py-4 flex justify-center">
+        <div className="fixed w-full bg-gradient-to-b from-slate-800 to-slate-600 mx-10 sm:mx-auto max-w-6xl px-4 flex justify-between items-center border border-zinc-600 p-3 rounded-full">
           {/* left part */}
           <div>
             <span className="text-xl text-white cursor-pointer font-bold ml-2">
@@ -33,13 +33,23 @@ function Header() {
           </div>
           {/* right part */}
           <div className="flex space-x-3 items-center">
-            <button className="hidden md:inline-block text-white bg-blue-500 px-4 py-2 rounded-full">
+            <Link
+              className="hidden md:inline-block text-white bg-blue-500 px-4 py-2 rounded-full"
+              href="https://www.linkedin.com/in/syamcherukuri/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Linkedin
-            </button>
+            </Link>
 
-            <button className="border cursor-pointer border-gray-500 px-4 py-2 text-white rounded-full">
+            <Link
+              className="border cursor-pointer border-gray-500 px-4 py-2 text-white rounded-full"
+              href="https://github.com/shyamsha"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               GitHub
-            </button>
+            </Link>
           </div>
         </div>
       </header>

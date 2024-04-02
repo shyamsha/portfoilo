@@ -10,8 +10,8 @@ function About() {
         About
       </h3>
 
-      <div className="p-6 lg mx-32">
-        <div className="text-xl font-light text-gray-400 text-left">
+      <div className="p-6 lg mx-64">
+        <div className="text-xl text-slate-400 text-left">
           <p>{aboutData}</p>
         </div>
       </div>
